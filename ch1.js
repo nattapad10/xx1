@@ -1,8 +1,9 @@
 var http = require('http');
-var http = require('http');
-
+var fs = require('fs');
 http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Nattapad Mueankid 60030029');
+  fs.readFile('Introduce yourself.html', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+	res.write(data);
+    return res.end();
+  });
 }).listen(3007);
-
